@@ -32,6 +32,12 @@ function playRockPaperScissors(playerSelection){
   }
 }
 
+//Create a function that call the previous one and play 5 time with de computer
 
+function game(){
+  for(let i = 1; i <= 5; i++){
+    console.log(playRockPaperScissors(prompt('insert "rock" "paper" or "scissors"')))
+  }
+}
 
 
