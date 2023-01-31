@@ -16,6 +16,7 @@ function getComputerChoice(){
 }
 
 // Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
+
 // Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).
 
 function playRockPaperScissors(playerSelection){
@@ -37,30 +38,33 @@ function playRockPaperScissors(playerSelection){
   }
 }
 
-
-
-let buttonRock = document.querySelector('#rock')
-let buttonPaper = document.querySelector('#paper')
-let buttonScissors = document.querySelector('#scissor')
-
-
-buttonRock.addEventListener('click', playRound)
-buttonPaper.addEventListener('click', playRound)
-buttonScissors.addEventListener('click', playRound)
-
 let divResults = document.querySelector('#results')
+
 let playerScore = document.querySelector('#playerScore')
+
 let pScore = 0
+
 let computerScore = document.querySelector('#computerScore')
+
 let pcScore = 0
 
 let finalResults = document.querySelector('#finalResults')
 
+//Grab the three buttons of the html file
+
+let buttons = document.querySelectorAll('button')
+
+//Add an event listener to the buttons that call the playRound function with the correct playerSelection every time a button is clicked
+
+buttons.forEach(button => {
+  button.addEventListener('click', playRound)
+})
 
 
-
+//Display the running score and announce a winner of the game once one player reaches 5 points
 
 function playRound(e){
+
   if(pScore == 5 || pcScore == 5){
     if(pScore == 5){
 
@@ -88,3 +92,14 @@ function playRound(e){
 
 }
 }
+
+
+
+
+
+
+
+
+
+
+
