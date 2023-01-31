@@ -32,12 +32,34 @@ function playRockPaperScissors(playerSelection){
   }
 }
 
-//Create a function that call the previous one and play 5 time with de computer
 
-function game(){
-  for(let i = 1; i <= 5; i++){
-    console.log(playRockPaperScissors(prompt('insert "rock" "paper" or "scissors"')))
+
+let buttonRock = document.querySelector('#rock')
+let buttonPaper = document.querySelector('#paper')
+let buttonScissors = document.querySelector('#scissor')
+
+
+buttonRock.addEventListener('click', playRound)
+buttonPaper.addEventListener('click', playRound)
+buttonScissors.addEventListener('click', playRound)
+
+let divResults = document.querySelector('#results')
+let playerScore = document.querySelector('#playerScore')
+let computerScore = document.querySelector('#computerScore')
+let finalResults = document.querySelector('#finalResults')
+
+
+function playRound(e){
+  if(playerScore == 5 && computerScore < 5){
+    finalResults.textContent = 'player WINS!'
+    return
   }
+  else if(computerScore == 5 && playerScore < 5){
+    
+  }
+  console.log(playRockPaperScissors(e.target.textContent))
+  
+  divResults.textContent = playRockPaperScissors(e.target.textContent)
+
+  divResults.style.fontSize = '20px'
 }
-
-
