@@ -24,10 +24,15 @@ function playRockPaperScissors(playerSelection){
   let computerChoice = getComputerChoice().toLowerCase()
   
   if(computerChoice === 'rock' &&  playerChoice === 'scissors' || computerChoice === 'paper' && playerChoice === 'rock' || computerChoice === 'scissors' && playerChoice === 'paper'){
+
+    pcScore += 1
     return `You Lose! ${computerChoice} beats ${playerChoice}`
+
+    
   } else if(playerChoice === computerChoice){return 'Its a tie!'} 
 
   else{
+    pScore += 1
     return `You Win! ${playerChoice} beats ${computerChoice}`
   }
 }
@@ -45,21 +50,34 @@ buttonScissors.addEventListener('click', playRound)
 
 let divResults = document.querySelector('#results')
 let playerScore = document.querySelector('#playerScore')
+let pScore = 0
 let computerScore = document.querySelector('#computerScore')
+let pcScore = 0
+
 let finalResults = document.querySelector('#finalResults')
 
 
+
+
+
 function playRound(e){
-  if(playerScore == 5 && computerScore < 5){
-    finalResults.textContent = 'player WINS!'
+  if(pScore == 5 || pcScore == 5){
+    if(pScore == 5){
+
+      finalResults.textContent = 'player WINS!'
     return
-  }
-  else if(computerScore == 5 && playerScore < 5){
+    } else if (pcScore == 5){
+
+      finalResults.textContent = 'computer WINS!'
+    return
+    }} else{
     
-  }
-  console.log(playRockPaperScissors(e.target.textContent))
-  
   divResults.textContent = playRockPaperScissors(e.target.textContent)
 
   divResults.style.fontSize = '20px'
+  playerScore.textContent = `Player Score: ${pScore}`
+
+  computerScore.textContent = `Computer score ${pcScore}`
+
+}
 }
