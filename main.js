@@ -65,13 +65,20 @@ function playRound(e){
     if(pScore == 5){
 
       finalResults.textContent = 'player WINS!'
+      pScore = 0
+      pcScore = 0
+      
     return
     } else if (pcScore == 5){
 
       finalResults.textContent = 'computer WINS!'
+      pScore = 0
+      pcScore = 0
+      
     return
     }} else{
-    
+  
+  finalResults.textContent = ''   
   divResults.textContent = playRockPaperScissors(e.target.textContent)
 
   divResults.style.fontSize = '20px'
